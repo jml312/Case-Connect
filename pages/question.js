@@ -444,13 +444,15 @@ function AnswerModal({
                       method: "POST",
                       body: formData,
                     });
-                    const { answerId, createdAt } = await res.json();
+                    const { secure_url, answerId, createdAt } =
+                      await res.json();
                     setAnswers(
                       [
                         ...answers,
                         {
                           id: answerId,
                           answer: answer.trim(),
+                          attachment: secure_url,
                           questionId: id,
                           userCaseId: caseId,
                           publisherName: name,
