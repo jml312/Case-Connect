@@ -444,7 +444,7 @@ function AnswerModal({
                       method: "POST",
                       body: formData,
                     });
-                    const { secure_url, answerId, createdAt } =
+                    const { secure_urlanswerId, createdAt } =
                       await res.json();
                     setAnswers(
                       [
