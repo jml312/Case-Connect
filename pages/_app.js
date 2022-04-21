@@ -10,18 +10,17 @@ import splitbee from "@splitbee/web";
 
 function App({ Component, pageProps: { session, ...pageProps } }) {
   useEffect(() => {
-    if (process.env.NODE_ENV === "production") {
-      splitbee.init({
-        apiUrl: "/sb-api",
-        scriptUrl: "/sb.js",
-      });
-    }
+    splitbee.init({
+      scriptUrl: "/bee.js",
+      apiUrl: "/_hive",
+    });
   }, []);
 
   return (
     <>
       <Head>
         <title>Case Connect</title>
+        <script async data-api="/_hive" src="/bee.js"></script>
       </Head>
       <SessionProvider session={session}>
         <ChakraProvider theme={theme}>
